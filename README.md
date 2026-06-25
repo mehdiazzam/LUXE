@@ -1,4 +1,4 @@
-# Aura Commerce
+# LUXE
 
 Modern ecommerce web app built with React, Vite, TanStack Router, and Tailwind CSS. Includes shop, cart, wishlist, checkout flow, and Firebase auth integration.
 

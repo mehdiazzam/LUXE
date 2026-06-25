@@ -6,7 +6,7 @@ import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 const isGithubPagesBuild = process.env.npm_lifecycle_event === "build:github";
-const githubPagesBase = "/aura-commerce/";
+const githubPagesBase = "/luxe/";
 
 export default defineConfig(({ command }) => {
   const useCloudflare = command === "build" && !isGithubPagesBuild;
