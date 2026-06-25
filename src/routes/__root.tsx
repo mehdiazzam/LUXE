@@ -5,6 +5,8 @@ import { RootLayout, RootShell } from "@/app/root-layout";
 
 import appCss from "../styles.css?url";
 
+const faviconHref = `${import.meta.env.BASE_URL}favicon.svg`;
+
 interface RouterContext {
   queryClient: QueryClient;
 }
@@ -28,7 +30,10 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "icon", type: "image/svg+xml", href: faviconHref },
+      { rel: "stylesheet", href: appCss },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

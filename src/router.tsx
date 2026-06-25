@@ -2,6 +2,9 @@ import { createRouter, useRouter } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
 import { routeTree } from "./routeTree.gen";
 
+const routerBasePath = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+const homeHref = import.meta.env.BASE_URL;
+
 function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   return (
@@ -22,7 +25,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
             Try again
           </button>
           <a
-            href="/"
+            href={homeHref}
             className="rounded-full border border-hairline px-5 py-2 text-sm font-medium text-foreground transition hover:bg-surface"
           >
             Go home
@@ -41,6 +44,7 @@ export const getRouter = () => {
   });
   const router = createRouter({
     routeTree,
+    basepath: routerBasePath,
     context: { queryClient },
     scrollRestoration: true,
     defaultPreload: "intent",
